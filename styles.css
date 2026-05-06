@@ -1,0 +1,372 @@
+/* MK Cars — Dark luxury design system */
+:root {
+  --bg: #0a0a0a;
+  --bg-elev: #141414;
+  --bg-card: #1a1a1a;
+  --bg-card-hover: #1f1f1f;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --text: #f5f5f5;
+  --text-muted: #9a9a9a;
+  --text-faint: #666;
+  --accent: #f3c14a;
+  --accent-hover: #f8cf64;
+  --accent-text: #0a0a0a;
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] {
+  --bg: #f5f3ee;
+  --bg-elev: #fffdf9;
+  --bg-card: #ffffff;
+  --bg-card-hover: #faf8f3;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.16);
+  --text: #15130f;
+  --text-muted: #5a564f;
+  --text-faint: #8a8680;
+  --accent: #c89726;
+  --accent-hover: #d6a232;
+  --accent-text: #fffdf9;
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+
+/* Layout */
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+}
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in oklab, var(--bg) 80%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  height: 38px;
+  width: auto;
+  display: block;
+  /* Dark theme: invert the logo so the black mark becomes white */
+  filter: invert(1) brightness(1.1);
+  mix-blend-mode: screen;
+}
+
+[data-theme="light"] .logo-img {
+  filter: none;
+  mix-blend-mode: multiply;
+}
+
+.footer .logo-img {
+  height: 36px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+.nav a {
+  position: relative;
+  padding: 8px 0;
+  transition: color .2s;
+}
+.nav a:hover { color: var(--text); }
+.nav a.active { color: var(--text); }
+.nav a.active::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.icon-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  color: var(--text);
+  transition: all .2s;
+}
+.icon-btn:hover { background: var(--bg-card-hover); border-color: var(--border-strong); }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all .2s;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+.btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+}
+.btn-ghost:hover { background: var(--bg-card); }
+
+/* Cards */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: all .25s;
+}
+.card:hover { background: var(--bg-card-hover); border-color: var(--border-strong); }
+
+/* Section */
+.section { padding: 96px 0; }
+.section-tight { padding: 56px 0; }
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0 0 16px;
+}
+
+.section-sub {
+  color: var(--text-muted);
+  font-size: 17px;
+  max-width: 560px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+/* Image placeholder used when no real image */
+.img-ph {
+  background:
+    repeating-linear-gradient(135deg,
+      rgba(255,255,255,0.03) 0 8px,
+      rgba(255,255,255,0.06) 8px 16px),
+    var(--bg-card);
+  display: grid;
+  place-items: center;
+  color: var(--text-faint);
+  font-family: ui-monospace, SF Mono, Menlo, monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Utility */
+.muted { color: var(--text-muted); }
+.faint { color: var(--text-faint); }
+.divider { height: 1px; background: var(--border); border: 0; margin: 0; }
+
+/* Page transitions */
+.page-fade {
+  animation: pageIn .35s ease;
+}
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 64px 0 40px;
+  margin-top: 80px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+.footer-col h4 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin: 0 0 18px;
+  font-weight: 600;
+}
+.footer-col a {
+  display: block;
+  padding: 6px 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.footer-col a:hover { color: var(--accent); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  color: var(--text-faint);
+  font-size: 13px;
+}
+@media (max-width: 768px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .nav { display: none; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--bg-card); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--bg-card-hover); }
+
+/* =========================================
+   SCROLL ANIMATIONS (Intersection Observer)
+   ========================================= */
+
+/* Base state — hidden, shifted down */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+/* Activated state — visible */
+.animate-on-scroll.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade in from below (default, same as base) */
+.animate-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.animate-fade-in.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide in from the left */
+.animate-slide-left {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+.animate-slide-left.animated {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide in from the right */
+.animate-slide-right {
+  opacity: 0;
+  transform: translateX(40px);
+}
+.animate-slide-right.animated {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Staggered delay helpers for card grids */
+.animate-on-scroll.delay-1 { transition-delay: 0.08s; }
+.animate-on-scroll.delay-2 { transition-delay: 0.16s; }
+.animate-on-scroll.delay-3 { transition-delay: 0.24s; }
+.animate-on-scroll.delay-4 { transition-delay: 0.32s; }
+.animate-on-scroll.delay-5 { transition-delay: 0.40s; }
+.animate-on-scroll.delay-6 { transition-delay: 0.48s; }
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll,
+  .animate-fade-in,
+  .animate-slide-left,
+  .animate-slide-right {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

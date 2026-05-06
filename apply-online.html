@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply Online — MK Collectible Cars</title>
+<meta name="description" content="Apply for financing at MK Collectible Cars LLC. Fast, simple credit application for our inventory of AMG, Porsche, BMW M, and collectible vehicles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0a;
+  --bg-elev: #141414;
+  --bg-card: #1a1a1a;
+  --bg-card-hover: #1f1f1f;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --text: #f5f5f5;
+  --text-muted: #9a9a9a;
+  --text-faint: #666;
+  --accent: #f3c14a;
+  --accent-hover: #f8cf64;
+  --accent-text: #0a0a0a;
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] {
+  --bg: #f5f3ee;
+  --bg-elev: #fffdf9;
+  --bg-card: #ffffff;
+  --bg-card-hover: #faf8f3;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.16);
+  --text: #15130f;
+  --text-muted: #5a564f;
+  --text-faint: #8a8680;
+  --accent: #c89726;
+  --accent-hover: #d6a232;
+  --accent-text: #fffdf9;
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+}
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in oklab, var(--bg) 80%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  height: 38px;
+  width: auto;
+  display: block;
+  filter: invert(1) brightness(1.1);
+  mix-blend-mode: screen;
+}
+
+[data-theme="light"] .logo-img {
+  filter: none;
+  mix-blend-mode: multiply;
+}
+
+.nav {
+  display: flex;
+  gap: 8px;
+}
+
+.nav a {
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 10px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.nav a:hover { color: var(--text); background: var(--bg-card); }
+.nav a.active { color: var(--accent); }
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon-btn {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  display: grid; place-items: center;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.icon-btn:hover { background: var(--bg-card); color: var(--text); border-color: var(--border-strong); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 26px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background 0.15s, color 0.15s, opacity 0.15s;
+  text-decoration: none;
+  font-family: inherit;
+}
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+}
+.btn-ghost:hover { background: var(--bg-card); }
+
+/* Sections */
+.section {
+  padding: 80px 0;
+}
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.accent-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+}
+.section-title {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+}
+.section-sub {
+  color: var(--text-muted);
+  font-size: 17px;
+  line-height: 1.6;
+  margin: 0 0 40px;
+  max-width: 560px;
+}
+
+/* Page Hero */
+.page-hero {
+  padding: 80px 0 60px;
+  border-bottom: 1px solid var(--border);
+}
+.page-fade { animation: pageIn 0.5s ease; }
+@keyframes pageIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* Form */
+.form-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 40px;
+  align-items: start;
+  padding: 60px 0 100px;
+}
+
+@media (max-width: 1000px) {
+  .form-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+}
+
+.form-section-title {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+}
+
+.form-section-title svg {
+  color: var(--accent);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.form-grid.full { grid-template-columns: 1fr; }
+
+@media (max-width: 600px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .form-card { padding: 24px; }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group.span-2 { grid-column: span 2; }
+
+@media (max-width: 600px) {
+  .form-group.span-2 { grid-column: span 1; }
+}
+
+.form-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+}
+
+.form-label span.req {
+  color: var(--accent);
+  margin-left: 2px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 15px;
+  padding: 12px 14px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  outline: none;
+  width: 100%;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder { color: var(--text-faint); }
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 15%, transparent);
+}
+
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239a9a9a' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 32px 0;
+}
+
+.form-submit {
+  width: 100%;
+  padding: 16px;
+  background: var(--accent);
+  color: var(--accent-text);
+  border: none;
+  border-radius: var(--radius);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, opacity 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+.form-submit:hover { background: var(--accent-hover); }
+
+.form-note {
+  font-size: 12px;
+  color: var(--text-faint);
+  margin-top: 12px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Sidebar */
+.sidebar-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin-bottom: 16px;
+}
+
+.sidebar-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+
+.sidebar-feature {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.sidebar-feature:last-child { margin-bottom: 0; }
+
+.sidebar-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: color-mix(in oklab, var(--accent) 12%, transparent);
+  color: var(--accent);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.sidebar-feature strong {
+  display: block;
+  color: var(--text);
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.contact-link:hover { background: var(--bg-elev); border-color: var(--border-strong); color: var(--text); }
+.contact-link svg { color: var(--accent); flex-shrink: 0; }
+
+/* Success message */
+.success-message {
+  display: none;
+  background: color-mix(in oklab, var(--accent) 10%, transparent);
+  border: 1px solid color-mix(in oklab, var(--accent) 30%, transparent);
+  border-radius: var(--radius);
+  padding: 24px;
+  text-align: center;
+  margin-top: 16px;
+}
+.success-message h3 { font-size: 20px; margin: 0 0 8px; color: var(--accent); }
+.success-message p { color: var(--text-muted); margin: 0; font-size: 15px; }
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 64px 0 40px;
+  margin-top: 80px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+.footer-col h4 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin: 0 0 18px;
+  font-weight: 600;
+}
+.footer-col a {
+  display: block;
+  padding: 6px 0;
+  color: var(--text);
+  font-size: 15px;
+}
+.footer-col a:hover { color: var(--accent); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  color: var(--text-faint);
+  font-size: 13px;
+}
+.social-icons {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  align-self: flex-end;
+}
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  color: var(--text-muted);
+  transition: color 0.15s, border-color 0.15s;
+}
+.social-icon:hover {
+  color: var(--accent);
+}
+@media (max-width: 960px) {
+  .nav { display: none; }
+}
+@media (max-width: 768px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <img src="assets/logo.png" alt="MK Collectible Cars" class="logo-img" />
+    </a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="index.html#/inventory">Inventory</a>
+      <a href="index.html#services">Services</a>
+      <a href="our-story.html">About</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="apply-online.html" class="active">Apply Online</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="theme-btn" title="Toggle theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" id="theme-icon">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="page-fade">
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-eyebrow">
+        <span class="accent-dot"></span>
+        Financing
+      </div>
+      <h1 class="section-title">Apply Online</h1>
+      <p class="section-sub">Fill out the form below and our team will review your application and reach out within one business day. All information is kept strictly confidential.</p>
+    </div>
+  </section>
+
+  <!-- FORM LAYOUT -->
+  <div class="container">
+    <div class="form-layout">
+
+      <!-- FORM -->
+      <div class="animate-on-scroll animate-slide-left">
+        <form id="apply-form" action="https://formspree.io/f/xpwrqdwl" method="POST">
+          <input type="hidden" name="_subject" value="New Financing Application — MK Collectible Cars" />
+          <input type="hidden" name="_replyto" value="m22k.cars@gmail.com" />
+
+          <!-- Personal Info -->
+          <div class="form-card" style="margin-bottom: 16px;">
+            <div class="form-section-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Personal Information
+            </div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">First Name <span class="req">*</span></label>
+                <input class="form-input" type="text" name="first_name" placeholder="John" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Last Name <span class="req">*</span></label>
+                <input class="form-input" type="text" name="last_name" placeholder="Smith" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email Address <span class="req">*</span></label>
+                <input class="form-input" type="email" name="email" placeholder="john@example.com" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone Number <span class="req">*</span></label>
+                <input class="form-input" type="tel" name="phone" placeholder="(555) 000-0000" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Date of Birth</label>
+                <input class="form-input" type="date" name="dob" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Driver's License #</label>
+                <input class="form-input" type="text" name="license_number" placeholder="Optional" />
+              </div>
+            </div>
+
+            <!-- Address -->
+            <div class="form-grid full">
+              <div class="form-group">
+                <label class="form-label">Street Address <span class="req">*</span></label>
+                <input class="form-input" type="text" name="address" placeholder="123 Main St" required />
+              </div>
+            </div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">City <span class="req">*</span></label>
+                <input class="form-input" type="text" name="city" placeholder="Los Angeles" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">State</label>
+                <select class="form-select" name="state">
+                  <option value="">Select state</option>
+                  <option value="CA" selected>California</option>
+                  <option value="NY">New York</option>
+                  <option value="TX">Texas</option>
+                  <option value="FL">Florida</option>
+                  <option value="WA">Washington</option>
+                  <option value="OR">Oregon</option>
+                  <option value="NV">Nevada</option>
+                  <option value="AZ">Arizona</option>
+                  <option value="CO">Colorado</option>
+                  <option value="IL">Illinois</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">ZIP Code <span class="req">*</span></label>
+                <input class="form-input" type="text" name="zip" placeholder="90001" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Years at Address</label>
+                <select class="form-select" name="years_at_address">
+                  <option value="">Select</option>
+                  <option>Less than 1 year</option>
+                  <option>1–2 years</option>
+                  <option>3–5 years</option>
+                  <option>5+ years</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Employment -->
+          <div class="form-card" style="margin-bottom: 16px;">
+            <div class="form-section-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+              Employment &amp; Income
+            </div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">Employment Status <span class="req">*</span></label>
+                <select class="form-select" name="employment_status" required>
+                  <option value="">Select</option>
+                  <option>Employed Full-Time</option>
+                  <option>Employed Part-Time</option>
+                  <option>Self-Employed</option>
+                  <option>Retired</option>
+                  <option>Student</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Employer Name</label>
+                <input class="form-input" type="text" name="employer_name" placeholder="Company name" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Job Title</label>
+                <input class="form-input" type="text" name="job_title" placeholder="Your position" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Time at Employer</label>
+                <select class="form-select" name="time_at_employer">
+                  <option value="">Select</option>
+                  <option>Less than 1 year</option>
+                  <option>1–2 years</option>
+                  <option>3–5 years</option>
+                  <option>5–10 years</option>
+                  <option>10+ years</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Monthly Gross Income <span class="req">*</span></label>
+                <input class="form-input" type="text" name="monthly_income" placeholder="$0,000" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Additional Monthly Income</label>
+                <input class="form-input" type="text" name="additional_income" placeholder="$0,000 (optional)" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Vehicle & Loan -->
+          <div class="form-card" style="margin-bottom: 16px;">
+            <div class="form-section-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M3 13h18l-2-6H5l-2 6z"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/></svg>
+              Vehicle &amp; Loan Details
+            </div>
+            <div class="form-grid">
+              <div class="form-group span-2">
+                <label class="form-label">Vehicle of Interest</label>
+                <select class="form-select" name="vehicle_interest">
+                  <option value="">Select a vehicle</option>
+                  <option>2009 Mercedes-Benz CLS 63 AMG — $26,500</option>
+                  <option>2009 Mercedes-Benz C 63 AMG — $32,500</option>
+                  <option>2011 Mercedes-Benz ML 63 AMG — $18,300</option>
+                  <option>2007 Mercedes-Benz SL 550 — $17,500</option>
+                  <option>2016 Porsche Cayenne GTS — $29,950</option>
+                  <option>2015 Porsche Macan S — $21,500</option>
+                  <option>2006 BMW Z4 M Coupe — $19,800</option>
+                  <option>Not sure yet / other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Desired Loan Amount <span class="req">*</span></label>
+                <input class="form-input" type="text" name="loan_amount" placeholder="$0,000" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Down Payment</label>
+                <input class="form-input" type="text" name="down_payment" placeholder="$0,000" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Preferred Loan Term</label>
+                <select class="form-select" name="loan_term">
+                  <option value="">Select</option>
+                  <option>24 months</option>
+                  <option>36 months</option>
+                  <option>48 months</option>
+                  <option>60 months</option>
+                  <option>72 months</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Self-Estimated Credit Score</label>
+                <select class="form-select" name="credit_score">
+                  <option value="">Select</option>
+                  <option>Excellent (750+)</option>
+                  <option>Good (700–749)</option>
+                  <option>Fair (650–699)</option>
+                  <option>Poor (600–649)</option>
+                  <option>Bad (below 600)</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Additional -->
+          <div class="form-card">
+            <div class="form-section-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Additional Information
+            </div>
+            <div class="form-grid full">
+              <div class="form-group">
+                <label class="form-label">Do you have a trade-in vehicle?</label>
+                <select class="form-select" name="trade_in">
+                  <option value="No">No trade-in</option>
+                  <option value="Yes">Yes, I have a trade-in</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Trade-in Details (if applicable)</label>
+                <input class="form-input" type="text" name="trade_in_details" placeholder="Year, make, model, mileage" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Questions or Comments</label>
+                <textarea class="form-textarea" name="comments" placeholder="Any questions about financing, specific vehicles, or anything else you'd like us to know..."></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="form-submit">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Submit Application
+            </button>
+            <p class="form-note">By submitting this form you agree to be contacted by MK Collectible Cars LLC. Your information will never be sold or shared with third parties.</p>
+          </div>
+
+          <div class="success-message" id="success-msg">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent); margin: 0 auto 12px; display: block;"><path d="M20 6L9 17l-5-5"/></svg>
+            <h3>Application Received!</h3>
+            <p>Thank you — our team will review your information and contact you within one business day.</p>
+          </div>
+        </form>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="animate-on-scroll animate-slide-right">
+        <div class="sidebar-card">
+          <h3>Why Finance With Us?</h3>
+          <div class="sidebar-feature">
+            <div class="sidebar-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg>
+            </div>
+            <div>
+              <strong>Fast Decision</strong>
+              We review applications quickly — usually within one business day.
+            </div>
+          </div>
+          <div class="sidebar-feature">
+            <div class="sidebar-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <strong>Secure &amp; Confidential</strong>
+              Your personal and financial information is handled with full confidentiality.
+            </div>
+          </div>
+          <div class="sidebar-feature">
+            <div class="sidebar-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 17l2 2a1 1 0 1 0 3-3"/><path d="M14 14l2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="M21 3l-6 6"/><path d="M3 21l8-8"/></svg>
+            </div>
+            <div>
+              <strong>All Credit Considered</strong>
+              We work with buyers across the credit spectrum and can recommend the right lenders.
+            </div>
+          </div>
+          <div class="sidebar-feature">
+            <div class="sidebar-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <strong>Personal Guidance</strong>
+              Our team will walk you through every step of the financing process.
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Questions? Reach Out</h3>
+          <a href="tel:17474416336" class="contact-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +1 747-441-6336
+          </a>
+          <a href="tel:17474416336" class="contact-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +1 747-441-6336
+          </a>
+          <a href="mailto:m22k.cars@gmail.com" class="contact-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+            m22k.cars@gmail.com
+          </a>
+          <a href="index.html#contact" class="contact-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            1333 E Washington Blvd, LA
+          </a>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Current Inventory</h3>
+          <p style="font-size: 14px; color: var(--text-muted); line-height: 1.5; margin: 0 0 16px;">Browse our hand-selected vehicles before or after applying.</p>
+          <a href="index.html#/inventory" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 13px;">
+            View All Cars
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">
+          <img src="assets/logo.png" alt="MK Collectible Cars" class="logo-img" />
+        </a>
+        <p class="muted" style="margin-top: 16px; max-width: 320px; line-height: 1.5;">
+          Boutique dealership specializing in collectible performance cars. Clean titles, verified history, transparent process — located in Los Angeles, CA.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Browse</h4>
+        <a href="index.html#/inventory">All Inventory</a>
+        <a href="apply-online.html">Financing</a>
+        <a href="our-story.html">About</a>
+        <a href="index.html#services">Services</a>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="index.html#services">Buy</a>
+        <a href="index.html#services">Sell</a>
+        <a href="index.html#services">Consignment</a>
+        <a href="index.html#services">Detailing</a>
+      </div>
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <a href="#">1333 E Washington Blvd</a>
+        <a href="#">Los Angeles, CA 90021</a>
+        <a href="tel:17474416336">+1 747-441-6336</a>
+        <div class="social-icons">
+          <a href="https://wa.me/17474416336" target="_blank" rel="noopener noreferrer" title="WhatsApp" class="social-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@MKCarsLA" target="_blank" rel="noopener noreferrer" title="YouTube" class="social-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/people/MK-Collectible-Cars/61585232605887/" target="_blank" rel="noopener noreferrer" title="Facebook" class="social-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/mkcollectiblecars" target="_blank" rel="noopener noreferrer" title="Instagram" class="social-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 MK Collectible Cars LLC. All rights reserved.</span>
+      <a href="privacy-policy.html" style="color: var(--text-faint); transition: color 0.15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-faint)'">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  const saved = localStorage.getItem('mk-theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', saved);
+  updateIcon(saved);
+
+  document.getElementById('theme-btn').addEventListener('click', function() {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('mk-theme', next);
+    updateIcon(next);
+  });
+
+  function updateIcon(theme) {
+    const icon = document.getElementById('theme-icon');
+    if (theme === 'dark') {
+      icon.innerHTML = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>';
+    } else {
+      icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+    }
+  }
+
+  // Formspree AJAX submission
+  const form = document.getElementById('apply-form');
+  const successMsg = document.getElementById('success-msg');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const submitBtn = form.querySelector('.form-submit');
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="animation: spin 1s linear infinite"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg> Sending...';
+
+    const data = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(res) {
+      if (res.ok) {
+        form.style.display = 'none';
+        successMsg.style.display = 'block';
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Submit Application';
+        alert('There was an issue submitting the form. Please call us at +1 747-441-6336 or email m22k.cars@gmail.com.');
+      }
+    }).catch(function() {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Submit Application';
+      alert('There was a network error. Please call us at +1 747-441-6336.');
+    });
+  });
+})();
+</script>
+<style>
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+</style>
+<script src="scroll-animations.js"></script>
+</body>
+</html>

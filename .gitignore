@@ -1,0 +1,5 @@
+upload_beget.py
+*.pyc
+__pycache__/
+.DS_Store
+*.log

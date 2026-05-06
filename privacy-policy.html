@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — MK Collectible Cars</title>
+<meta name="description" content="Privacy Policy for MK Collectible Cars LLC — how we collect, use, and protect your personal information.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0a;
+  --bg-elev: #141414;
+  --bg-card: #1a1a1a;
+  --bg-card-hover: #1f1f1f;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --text: #f5f5f5;
+  --text-muted: #9a9a9a;
+  --text-faint: #666;
+  --accent: #f3c14a;
+  --accent-hover: #f8cf64;
+  --accent-text: #0a0a0a;
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 24px;
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+[data-theme="light"] {
+  --bg: #f5f3ee;
+  --bg-elev: #fffdf9;
+  --bg-card: #ffffff;
+  --bg-card-hover: #faf8f3;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.16);
+  --text: #15130f;
+  --text-muted: #5a564f;
+  --text-faint: #8a8680;
+  --accent: #c89726;
+  --accent-hover: #d6a232;
+  --accent-text: #fffdf9;
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+.container { max-width: 1440px; margin: 0 auto; padding: 0 48px; }
+@media (max-width: 768px) { .container { padding: 0 20px; } }
+
+/* Header */
+.header {
+  position: sticky; top: 0; z-index: 50;
+  background: color-mix(in oklab, var(--bg) 80%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 80px; }
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo-img {
+  height: 38px; width: auto; display: block;
+  filter: invert(1) brightness(1.1);
+  mix-blend-mode: screen;
+}
+[data-theme="light"] .logo-img { filter: none; mix-blend-mode: multiply; }
+.nav { display: flex; gap: 8px; }
+.nav a {
+  color: var(--text-muted); font-size: 14px; font-weight: 500;
+  padding: 8px 14px; border-radius: 10px;
+  transition: color 0.15s, background 0.15s;
+}
+.nav a:hover { color: var(--text); background: var(--bg-card); }
+.header-actions { display: flex; align-items: center; gap: 10px; }
+.icon-btn {
+  width: 40px; height: 40px; border-radius: 10px;
+  border: 1px solid var(--border); background: transparent;
+  color: var(--text-muted); display: grid; place-items: center;
+  cursor: pointer; transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.icon-btn:hover { background: var(--bg-card); color: var(--text); border-color: var(--border-strong); }
+
+/* Page */
+.page-fade { animation: pageIn 0.5s ease; }
+@keyframes pageIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+.page-hero {
+  padding: 80px 0 60px;
+  border-bottom: 1px solid var(--border);
+}
+.section-eyebrow {
+  display: flex; align-items: center; gap: 8px;
+  color: var(--accent); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px;
+}
+.accent-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent); display: inline-block;
+}
+.page-title {
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700; letter-spacing: -0.02em; margin: 0 0 16px;
+}
+.page-meta { color: var(--text-muted); font-size: 15px; }
+
+/* Content */
+.policy-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 60px;
+  padding: 60px 0 100px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .policy-layout { grid-template-columns: 1fr; }
+  .toc { display: none; }
+}
+
+.toc {
+  position: sticky; top: 100px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+.toc h3 {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-muted);
+  margin: 0 0 16px;
+}
+.toc a {
+  display: block; padding: 6px 0;
+  color: var(--text-muted); font-size: 14px;
+  border-left: 2px solid transparent;
+  padding-left: 12px; margin-left: -12px;
+  transition: color 0.15s, border-color 0.15s;
+}
+.toc a:hover { color: var(--accent); border-left-color: var(--accent); }
+
+.policy-content { max-width: 720px; }
+
+.policy-section {
+  margin-bottom: 56px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid var(--border);
+}
+.policy-section:last-child { border-bottom: none; }
+
+.policy-section h2 {
+  font-size: 24px; font-weight: 700;
+  letter-spacing: -0.01em; margin: 0 0 20px;
+  display: flex; align-items: center; gap: 12px;
+  scroll-margin-top: 100px;
+}
+.policy-section h2 .num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border-radius: 10px;
+  background: color-mix(in oklab, var(--accent) 12%, transparent);
+  color: var(--accent); font-size: 14px; font-weight: 700;
+  flex-shrink: 0;
+}
+.policy-section p {
+  color: var(--text-muted); font-size: 16px; line-height: 1.75;
+  margin: 0 0 16px;
+}
+.policy-section p:last-child { margin-bottom: 0; }
+.policy-section ul {
+  color: var(--text-muted); font-size: 16px; line-height: 1.75;
+  margin: 0 0 16px; padding-left: 0; list-style: none;
+}
+.policy-section ul li {
+  padding: 6px 0 6px 20px;
+  position: relative;
+}
+.policy-section ul li::before {
+  content: '';
+  position: absolute; left: 0; top: 16px;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+}
+.policy-section h3 {
+  font-size: 17px; font-weight: 700; margin: 24px 0 10px;
+  color: var(--text);
+}
+
+.highlight-box {
+  background: color-mix(in oklab, var(--accent) 8%, transparent);
+  border: 1px solid color-mix(in oklab, var(--accent) 20%, transparent);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin: 20px 0;
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.65;
+}
+.highlight-box strong { color: var(--accent); }
+
+/* Footer */
+.footer { border-top: 1px solid var(--border); padding: 60px 0 32px; color: var(--text-muted); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+@media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } .nav { display: none; } }
+@media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr; } }
+.footer-col { display: flex; flex-direction: column; gap: 10px; }
+.footer-col h4 { color: var(--text); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin: 0 0 4px; }
+.footer-col a { font-size: 14px; color: var(--text-muted); transition: color 0.15s; }
+.footer-col a:hover { color: var(--text); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 24px; border-top: 1px solid var(--border);
+  font-size: 13px; gap: 16px; flex-wrap: wrap; color: var(--text-faint);
+}
+.footer .logo-img { height: 44px; }
+.social-icons { display: flex; gap: 0; margin-top: auto;
+  align-self: flex-end; }
+.social-icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: 10px;
+  transition: color 0.15s, border-color 0.15s;
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <img src="assets/logo.png" alt="MK Collectible Cars" class="logo-img" />
+    </a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="index.html#/inventory">Inventory</a>
+      <a href="index.html#services">Services</a>
+      <a href="our-story.html">About</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="apply-online.html" style="color: var(--accent); font-weight: 700;">Apply Online</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="theme-btn" title="Toggle theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" id="theme-icon">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="page-fade">
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-eyebrow"><span class="accent-dot"></span>Legal</div>
+      <h1 class="page-title">Privacy Policy</h1>
+      <p class="page-meta">Effective date: January 1, 2024 &nbsp;·&nbsp; Last updated: May 2026</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="policy-layout">
+
+      <!-- TOC -->
+      <aside class="toc">
+        <h3>Contents</h3>
+        <a href="#overview">Overview</a>
+        <a href="#information-collected">Information We Collect</a>
+        <a href="#how-we-use">How We Use Your Information</a>
+        <a href="#sharing">Sharing &amp; Disclosure</a>
+        <a href="#cookies">Cookies &amp; Tracking</a>
+        <a href="#security">Data Security</a>
+        <a href="#retention">Data Retention</a>
+        <a href="#ccpa">California Privacy Rights</a>
+        <a href="#children">Children's Privacy</a>
+        <a href="#changes">Changes to This Policy</a>
+        <a href="#contact">Contact Us</a>
+      </aside>
+
+      <!-- Content -->
+      <div class="policy-content">
+
+        <div class="policy-section" id="overview">
+          <h2><span class="num">1</span>Overview</h2>
+          <p>MK Collectible Cars LLC ("MK Collectible Cars," "we," "our," or "us") operates the website <strong>mkcollections.kaz-b.com</strong> and is committed to protecting your personal information and your right to privacy.</p>
+          <p>This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, contact us, submit a financing application, or otherwise interact with us. Please read it carefully. If you disagree with the terms of this Privacy Policy, please discontinue use of our site.</p>
+          <div class="highlight-box">
+            <strong>In short:</strong> We collect information you provide to us directly (such as through our Apply Online form or contact messages), along with basic technical data about how you use our website. We use this information only to operate our business and communicate with you. We do not sell your personal data.
+          </div>
+        </div>
+
+        <div class="policy-section" id="information-collected">
+          <h2><span class="num">2</span>Information We Collect</h2>
+
+          <h3>Information you provide directly</h3>
+          <p>We collect information you voluntarily submit to us, including:</p>
+          <ul>
+            <li>Name, email address, and phone number when you contact us or submit an inquiry</li>
+            <li>Personal and financial information submitted through our financing application form (name, address, date of birth, employment status, income, and credit information)</li>
+            <li>Messages and correspondence you send us via our website chat or contact form</li>
+            <li>Trade-in vehicle details you choose to share with us</li>
+          </ul>
+
+          <h3>Information collected automatically</h3>
+          <p>When you visit our website, certain information is collected automatically by our hosting and analytics infrastructure:</p>
+          <ul>
+            <li>IP address and approximate geographic location (city/region level)</li>
+            <li>Browser type and version, operating system, and device type</li>
+            <li>Pages visited, time spent on pages, and referring URL</li>
+            <li>Date and time of each visit</li>
+          </ul>
+          <p>This information does not identify you personally and is used only in aggregate form to understand how our website is being used.</p>
+        </div>
+
+        <div class="policy-section" id="how-we-use">
+          <h2><span class="num">3</span>How We Use Your Information</h2>
+          <p>We use the information we collect for the following purposes:</p>
+          <ul>
+            <li><strong>To respond to inquiries</strong> — to contact you in response to a question, vehicle inquiry, or test drive request you submitted</li>
+            <li><strong>To process financing applications</strong> — to evaluate and respond to credit applications submitted through our Apply Online form</li>
+            <li><strong>To facilitate vehicle transactions</strong> — to assist in the purchase, sale, or consignment of vehicles</li>
+            <li><strong>To improve our website</strong> — to understand how visitors interact with our site and make improvements</li>
+            <li><strong>To comply with legal obligations</strong> — to meet applicable legal, regulatory, and compliance requirements</li>
+            <li><strong>To prevent fraud</strong> — to detect and prevent fraudulent transactions or misuse of our services</li>
+          </ul>
+          <p>We do not use your information for automated profiling or for any purpose beyond what is reasonably necessary to operate our dealership and serve you.</p>
+        </div>
+
+        <div class="policy-section" id="sharing">
+          <h2><span class="num">4</span>Sharing &amp; Disclosure</h2>
+          <p>We do not sell, trade, rent, or otherwise transfer your personal information to third parties for their marketing purposes. We may share your information only in the following limited circumstances:</p>
+
+          <h3>Service providers</h3>
+          <p>We may share information with trusted third-party service providers who assist us in operating our website or conducting our business (such as form processing services, email providers, and web hosting). These parties are contractually obligated to keep your information confidential and use it only for the specific services they provide to us.</p>
+
+          <h3>Financing and lending partners</h3>
+          <p>If you submit a financing application, we may share your information with lenders, banks, or financing companies for the purpose of evaluating your credit application. You will be informed before any such sharing takes place.</p>
+
+          <h3>Legal requirements</h3>
+          <p>We may disclose your information if required to do so by law, court order, or governmental authority, or when we believe disclosure is necessary to protect our rights, your safety, or the safety of others.</p>
+
+          <h3>Business transfers</h3>
+          <p>In the event of a merger, acquisition, or sale of all or a portion of our assets, your information may be transferred as part of that transaction. We will notify you of any such change in ownership or control of your personal information.</p>
+        </div>
+
+        <div class="policy-section" id="cookies">
+          <h2><span class="num">5</span>Cookies &amp; Tracking</h2>
+          <p>Our website uses a small number of cookies and similar technologies to enhance your experience:</p>
+          <ul>
+            <li><strong>Essential cookies</strong> — required for the website to function, such as saving your light/dark theme preference</li>
+            <li><strong>Analytics</strong> — we may use privacy-respecting analytics to understand aggregate traffic patterns. No personally identifiable information is included in analytics data</li>
+          </ul>
+          <p>You can control cookies through your browser settings. Disabling cookies may affect certain website functionality (such as theme preferences not being saved). We do not use advertising or cross-site tracking cookies.</p>
+        </div>
+
+        <div class="policy-section" id="security">
+          <h2><span class="num">6</span>Data Security</h2>
+          <p>We implement reasonable administrative, technical, and physical safeguards to protect your personal information from unauthorized access, disclosure, alteration, and destruction. Our website is served over HTTPS to encrypt data in transit.</p>
+          <p>Financing applications submitted through our website are processed by Formspree, a third-party form processing service with its own security and privacy practices. We recommend reviewing their privacy policy at formspree.io.</p>
+          <p>No method of transmission over the Internet or electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security.</p>
+        </div>
+
+        <div class="policy-section" id="retention">
+          <h2><span class="num">7</span>Data Retention</h2>
+          <p>We retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law (such as for tax, accounting, or other legal requirements).</p>
+          <p>General inquiries and contact messages are typically retained for up to 2 years. Financing application data may be retained longer as required by applicable financial regulations.</p>
+          <p>To request deletion of your data, please contact us using the information in Section 11.</p>
+        </div>
+
+        <div class="policy-section" id="ccpa">
+          <h2><span class="num">8</span>California Privacy Rights (CCPA)</h2>
+          <p>If you are a California resident, the California Consumer Privacy Act (CCPA) provides you with specific rights regarding your personal information:</p>
+          <ul>
+            <li><strong>Right to Know</strong> — you have the right to request that we disclose what personal information we have collected about you, the sources of that information, and the purposes for which it is used</li>
+            <li><strong>Right to Delete</strong> — you have the right to request that we delete your personal information, subject to certain exceptions</li>
+            <li><strong>Right to Opt-Out of Sale</strong> — we do not sell personal information, so this right does not apply, but you may contact us to confirm this</li>
+            <li><strong>Right to Non-Discrimination</strong> — we will not discriminate against you for exercising any of your CCPA rights</li>
+          </ul>
+          <p>To submit a verifiable consumer request, please contact us at <a href="mailto:m22k.cars@gmail.com" style="color: var(--accent);">m22k.cars@gmail.com</a> or call <a href="tel:17474416336" style="color: var(--accent);">+1 747-441-6336</a>. We will respond within 45 days of receiving a verifiable request.</p>
+        </div>
+
+        <div class="policy-section" id="children">
+          <h2><span class="num">9</span>Children's Privacy</h2>
+          <p>Our website is not directed to individuals under the age of 16, and we do not knowingly collect personal information from children. If you believe we have inadvertently collected information from a child under 16, please contact us immediately and we will delete that information promptly.</p>
+        </div>
+
+        <div class="policy-section" id="changes">
+          <h2><span class="num">10</span>Changes to This Policy</h2>
+          <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or for other operational reasons. We will update the "Last updated" date at the top of this page when changes are made.</p>
+          <p>We encourage you to review this Privacy Policy periodically. Your continued use of our website after any changes constitutes your acceptance of the updated policy.</p>
+        </div>
+
+        <div class="policy-section" id="contact">
+          <h2><span class="num">11</span>Contact Us</h2>
+          <p>If you have any questions, concerns, or requests regarding this Privacy Policy or how we handle your personal information, please contact us:</p>
+          <div class="highlight-box">
+            <strong>MK Collectible Cars LLC</strong><br>
+            1333 E Washington Blvd, Los Angeles, CA 90021<br><br>
+            Email: <a href="mailto:m22k.cars@gmail.com" style="color: var(--accent);">m22k.cars@gmail.com</a><br>
+            Phone: <a href="tel:17474416336" style="color: var(--accent);">+1 747-441-6336</a><br>
+            Hours: Monday – Saturday, 9:00 AM – 6:00 PM
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">
+          <img src="assets/logo.png" alt="MK Collectible Cars" class="logo-img" />
+        </a>
+        <p style="color: var(--text-muted); margin-top: 16px; max-width: 320px; line-height: 1.5; font-size: 14px;">
+          Boutique dealership specializing in collectible performance cars. Clean titles, verified history, transparent process — located in Los Angeles, CA.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Browse</h4>
+        <a href="index.html#/inventory">All Inventory</a>
+        <a href="apply-online.html">Financing</a>
+        <a href="our-story.html">About</a>
+        <a href="index.html#services">Services</a>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="index.html#services">Buy</a>
+        <a href="index.html#services">Sell</a>
+        <a href="index.html#services">Consignment</a>
+        <a href="index.html#services">Detailing</a>
+      </div>
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <a href="#">1333 E Washington Blvd</a>
+        <a href="#">Los Angeles, CA 90021</a>
+        <a href="tel:17474416336">+1 747-441-6336</a>
+        <div class="social-icons">
+          <a href="https://wa.me/17474416336" target="_blank" rel="noopener noreferrer" title="WhatsApp" class="social-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@MKCarsLA" target="_blank" rel="noopener noreferrer" title="YouTube" class="social-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/people/MK-Collectible-Cars/61585232605887/" target="_blank" rel="noopener noreferrer" title="Facebook" class="social-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/mkcollectiblecars" target="_blank" rel="noopener noreferrer" title="Instagram" class="social-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 MK Collectible Cars LLC. All rights reserved.</span>
+      <a href="privacy-policy.html" style="color: var(--text-faint); transition: color 0.15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-faint)'">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  const saved = localStorage.getItem('mk-theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', saved);
+  updateIcon(saved);
+  document.getElementById('theme-btn').addEventListener('click', function() {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('mk-theme', next);
+    updateIcon(next);
+  });
+  function updateIcon(theme) {
+    const icon = document.getElementById('theme-icon');
+    if (theme === 'dark') {
+      icon.innerHTML = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>';
+    } else {
+      icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+    }
+  }
+})();
+</script>
+</body>
+</html>
