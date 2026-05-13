@@ -674,6 +674,79 @@ button { font-family: inherit; cursor: pointer; }
   display: inline-block;
 }
 
+/* =========================================
+   SCROLL ANIMATIONS (Intersection Observer)
+   ========================================= */
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.animate-on-scroll.animated {
+  opacity: 1;
+  transform: none;
+}
+
+.animate-fade-in {
+  opacity: 0;
+  transform: translateY(32px);
+}
+.animate-fade-in.animated {
+  opacity: 1;
+  transform: none;
+}
+
+.animate-slide-left {
+  opacity: 0;
+  transform: translateX(-48px);
+}
+.animate-slide-left.animated {
+  opacity: 1;
+  transform: none;
+}
+
+.animate-slide-right {
+  opacity: 0;
+  transform: translateX(48px);
+}
+.animate-slide-right.animated {
+  opacity: 1;
+  transform: none;
+}
+
+.animate-scale-up {
+  opacity: 0;
+  transform: scale(0.94) translateY(20px);
+}
+.animate-scale-up.animated {
+  opacity: 1;
+  transform: none;
+}
+
+/* Stagger delays */
+.animate-on-scroll.delay-1 { transition-delay: 0.08s; }
+.animate-on-scroll.delay-2 { transition-delay: 0.16s; }
+.animate-on-scroll.delay-3 { transition-delay: 0.24s; }
+.animate-on-scroll.delay-4 { transition-delay: 0.32s; }
+.animate-on-scroll.delay-5 { transition-delay: 0.40s; }
+.animate-on-scroll.delay-6 { transition-delay: 0.48s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll,
+  .animate-fade-in,
+  .animate-slide-left,
+  .animate-slide-right,
+  .animate-scale-up {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 /* Mobile */
 @media (max-width: 900px) {
   .story-content {
@@ -867,35 +940,35 @@ button { font-family: inherit; cursor: pointer; }
           <h3>Clean Titles Only</h3>
           <p>Every vehicle we sell carries a clean title. No salvage, no flood, no rebuilt. We won't stock a car that we wouldn't personally recommend to a friend.</p>
         </div>
-        <div class="value-card">
+        <div class="value-card animate-on-scroll animate-fade-in delay-2">
           <div class="value-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 17l2 2a1 1 0 1 0 3-3"/><path d="M14 14l2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="M21 3l-6 6"/><path d="M3 21l8-8"/></svg>
           </div>
           <h3>Honest Condition</h3>
           <p>We describe our cars as they actually are — not as we wish them to be. Every flaw worth noting is disclosed before, not after, you make a decision.</p>
         </div>
-        <div class="value-card">
+        <div class="value-card animate-on-scroll animate-fade-in delay-3">
           <div class="value-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
           </div>
           <h3>Full Inspection</h3>
           <p>Before any car joins our inventory, it goes through a comprehensive mechanical inspection. We know what we're selling — and you'll know too.</p>
         </div>
-        <div class="value-card">
+        <div class="value-card animate-on-scroll animate-fade-in delay-1">
           <div class="value-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg>
           </div>
           <h3>Enthusiast Knowledge</h3>
           <p>We specialize in AMG, Porsche, BMW M, and collectible vehicles. We know these platforms deeply — the good variants, the ones to avoid, and why it matters.</p>
         </div>
-        <div class="value-card">
+        <div class="value-card animate-on-scroll animate-fade-in delay-2">
           <div class="value-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </div>
           <h3>Real Support</h3>
           <p>Our relationship with buyers doesn't end at the sale. Questions about your car, sourcing your next one, or just an honest opinion — we're available by phone or in person.</p>
         </div>
-        <div class="value-card">
+        <div class="value-card animate-on-scroll animate-fade-in delay-3">
           <div class="value-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5z"/></svg>
           </div>
@@ -909,14 +982,14 @@ button { font-family: inherit; cursor: pointer; }
   <!-- TIMELINE -->
   <section class="timeline-section">
     <div class="container">
-      <div class="section-eyebrow">
+      <div class="section-eyebrow animate-on-scroll animate-fade-in">
         <span class="accent-dot"></span>
         Our history
       </div>
-      <h2 class="section-title">The journey.</h2>
+      <h2 class="section-title animate-on-scroll animate-fade-in delay-1">The journey.</h2>
 
       <div class="timeline">
-        <div class="timeline-item">
+        <div class="timeline-item animate-on-scroll animate-slide-left">
           <div class="timeline-year">2018</div>
           <div class="timeline-line">
             <div class="timeline-dot"></div>
@@ -927,7 +1000,7 @@ button { font-family: inherit; cursor: pointer; }
             <p>MK Collectible Cars LLC opens at 1333 E Washington Blvd, Los Angeles with a focus on collectible and performance vehicles. First inventory includes AMG and BMW M models sourced from private collections.</p>
           </div>
         </div>
-        <div class="timeline-item">
+        <div class="timeline-item animate-on-scroll animate-slide-left delay-1">
           <div class="timeline-year">2019</div>
           <div class="timeline-line">
             <div class="timeline-dot"></div>
@@ -938,7 +1011,7 @@ button { font-family: inherit; cursor: pointer; }
             <p>Added Porsche to our core specialty brands. Introduced our consignment service, allowing collectors to sell their vehicles through MK Cars while we handle every detail.</p>
           </div>
         </div>
-        <div class="timeline-item">
+        <div class="timeline-item animate-on-scroll animate-slide-left delay-2">
           <div class="timeline-year">2021</div>
           <div class="timeline-line">
             <div class="timeline-dot"></div>
@@ -949,7 +1022,7 @@ button { font-family: inherit; cursor: pointer; }
             <p>Achieved 5-star ratings on both CarGurus and Kelley Blue Book, reflecting consistent buyer satisfaction. Launched our professional detailing service — paint correction, ceramic coatings, and interior care.</p>
           </div>
         </div>
-        <div class="timeline-item">
+        <div class="timeline-item animate-on-scroll animate-slide-left delay-3">
           <div class="timeline-year">2023</div>
           <div class="timeline-line">
             <div class="timeline-dot"></div>
@@ -960,7 +1033,7 @@ button { font-family: inherit; cursor: pointer; }
             <p>Expanded to include dedicated financing assistance to help more buyers access the collectible cars they want. Strengthened relationships with service partners across the LA area.</p>
           </div>
         </div>
-        <div class="timeline-item">
+        <div class="timeline-item animate-on-scroll animate-slide-left delay-4">
           <div class="timeline-year">2025</div>
           <div class="timeline-line">
             <div class="timeline-dot"></div>
@@ -978,7 +1051,7 @@ button { font-family: inherit; cursor: pointer; }
   <!-- CTA -->
   <section class="cta-section">
     <div class="container">
-      <div class="cta-inner">
+      <div class="cta-inner animate-on-scroll animate-fade-in">
         <div class="section-eyebrow" style="justify-content: center;">
           <span class="accent-dot"></span>
           Ready to find your car?
