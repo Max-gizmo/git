@@ -1026,7 +1026,16 @@ const HomePage = ({ onNav }) => {
   const isMobile = useIsMobile();
   const featured = CARS;
   const [activeIdx, setActiveIdx] = useState(0);
+  const [paused, setPaused] = useState(false);
   const car = featured[activeIdx];
+
+  useEffect(() => {
+    if (paused) return;
+    const t = setInterval(() => {
+      setActiveIdx(i => (i + 1) % featured.length);
+    }, 3000);
+    return () => clearInterval(t);
+  }, [paused, featured.length]);
 
   return (
     <div className="page-fade">
@@ -1052,7 +1061,7 @@ const HomePage = ({ onNav }) => {
             {/* Thumbnails */}
             <div className="no-scrollbar" style={hStyles.thumbs}>
               {featured.map((c, i) =>
-              <button key={c.id} onClick={() => setActiveIdx(i)}
+              <button key={c.id} onClick={() => { setActiveIdx(i); setPaused(true); setTimeout(() => setPaused(false), 8000); }}
               className="car-photo-frame"
               style={{ ...hStyles.thumb, ...(i === activeIdx ? hStyles.thumbActive : {}) }}>
                   <CarImage src={c.img} alt={c.model} label={c.brand} style={hStyles.thumbImg} />
