@@ -1047,20 +1047,20 @@ const HomePage = ({ onNav }) => {
         <div className="container">
           <div className="section-head">
             <div>
-              <div className="section-eyebrow">
+              <div className="section-eyebrow animate-on-scroll animate-fade-in">
                 <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)' }} />
                 Curated stock
               </div>
-              <h2 className="section-title">Our Collection</h2>
-              <p className="section-sub">Hand-selected pre-owned vehicles — AMG, Porsche, BMW M, and collectible marques. Every car has a clean title and verified service history.</p>
+              <h2 className="section-title animate-on-scroll animate-fade-in delay-1">Our Collection</h2>
+              <p className="section-sub animate-on-scroll animate-fade-in delay-2">Hand-selected pre-owned vehicles — AMG, Porsche, BMW M, and collectible marques. Every car has a clean title and verified service history.</p>
             </div>
-            <button className="btn btn-ghost" onClick={() => onNav('/inventory')}>
+            <button className="btn btn-ghost animate-on-scroll animate-fade-in delay-2" onClick={() => onNav('/inventory')}>
               Browse all {CARS.length} cars <Icon name="arrowRight" size={16} />
             </button>
           </div>
 
           <div className={isMobile ? 'no-scrollbar' : ''} style={isMobile ? {display:'flex',flexDirection:'row',overflowX:'scroll',scrollSnapType:'x mandatory',gap:16,padding:'0 0 16px',WebkitOverflowScrolling:'touch',scrollbarWidth:'none',msOverflowStyle:'none'} : hStyles.grid}>
-            {CARS.slice(0, 6).map((c) => <div key={c.id} style={isMobile?{flex:'0 0 82vw',scrollSnapAlign:'start',minWidth:0}:{}}><CarCard car={c} onOpen={(id) => onNav(`/car/${id}`)} /></div>)}
+            {CARS.slice(0, 6).map((c, i) => <div key={c.id} className={`animate-on-scroll animate-fade-in delay-${Math.min(i+1,6)}`} style={isMobile?{flex:'0 0 82vw',scrollSnapAlign:'start',minWidth:0}:{}}><CarCard car={c} onOpen={(id) => onNav(`/car/${id}`)} /></div>)}
           </div>
         </div>
       </section>
@@ -1070,9 +1070,9 @@ const HomePage = ({ onNav }) => {
         <div className="container">
           <div className="section-head">
             <div>
-              <div className="section-eyebrow"><span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)' }} />What we do</div>
-              <h2 className="section-title">Beyond the keys.</h2>
-              <p className="section-sub">From sourcing rare specifications to ongoing care, MK Cars handles every step of ownership.</p>
+              <div className="section-eyebrow animate-on-scroll animate-fade-in"><span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)' }} />What we do</div>
+              <h2 className="section-title animate-on-scroll animate-fade-in delay-1">Beyond the keys.</h2>
+              <p className="section-sub animate-on-scroll animate-fade-in delay-2">From sourcing rare specifications to ongoing care, MK Cars handles every step of ownership.</p>
             </div>
           </div>
 
@@ -1083,7 +1083,7 @@ const HomePage = ({ onNav }) => {
             { icon: 'sparkle', title: 'Consignment', desc: 'Let us sell your car for you. We prepare, photograph, market, and handle every aspect of the sale to get you the best price.' },
             { icon: 'shield', title: 'Detailing', desc: 'Professional detailing services including paint correction, ceramic coatings, leather care, and deep interior cleaning.' }].
             map((s, i) =>
-            <div key={i} className="card" style={hStyles.serviceCard}>
+            <div key={i} className={`card animate-on-scroll animate-slide-${i % 2 === 0 ? 'left' : 'right'} delay-${i+1}`} style={hStyles.serviceCard}>
                 <div style={hStyles.serviceIcon}><Icon name={s.icon} size={22} /></div>
                 <h3 style={{ fontSize: 22, fontWeight: 700, margin: '24px 0 8px', letterSpacing: '-0.01em' }}>{s.title}</h3>
                 <p style={{ color: 'var(--text-muted)', lineHeight: 1.55, margin: 0 }}>{s.desc}</p>
@@ -1097,7 +1097,7 @@ const HomePage = ({ onNav }) => {
       <section id="about" className="section">
         <div className="container">
           <div style={isMobile ? {display:'flex',flexDirection:'column',gap:32} : hStyles.aboutGrid}>
-            <div>
+            <div className="animate-on-scroll animate-slide-left">
               <div className="section-eyebrow"><span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)' }} />Los Angeles, CA</div>
               <h2 className="section-title" style={{ maxWidth: 560 }}>Collectible cars, honestly sold.</h2>
               <p style={{ color: 'var(--text-muted)', fontSize: 17, lineHeight: 1.6, maxWidth: 520, marginBottom: 32 }}>
@@ -1115,7 +1115,7 @@ const HomePage = ({ onNav }) => {
               { v: 'AMG', s: 'M · RS · Porsche', label: 'our specialty: performance and collectible marques' },
               { v: 'LA', s: 'Based', label: '1333 E Washington Blvd, Los Angeles, CA 90021' }].
               map((st, i) =>
-              <div key={i} className="card" style={hStyles.stat}>
+              <div key={i} className={`card animate-on-scroll animate-slide-right delay-${i+1}`} style={hStyles.stat}>
                   <div style={{ fontSize: 44, fontWeight: 700, letterSpacing: '-0.02em' }}>{st.v}</div>
                   <div style={{ fontWeight: 600, fontSize: 15, marginTop: 4 }}>{st.s}</div>
                   <div style={{ color: 'var(--text-muted)', fontSize: 13, lineHeight: 1.5, marginTop: 6 }}>{st.label}</div>
@@ -1131,8 +1131,8 @@ const HomePage = ({ onNav }) => {
         <div className="container">
           <div className="section-head">
             <div>
-              <div className="section-eyebrow"><span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)' }} />Visit us</div>
-              <h2 className="section-title">Our place.</h2>
+              <div className="section-eyebrow animate-on-scroll animate-fade-in"><span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)' }} />Visit us</div>
+              <h2 className="section-title animate-on-scroll animate-fade-in delay-1">Our place.</h2>
             </div>
           </div>
 
@@ -1140,7 +1140,7 @@ const HomePage = ({ onNav }) => {
             {[
             { city: 'Los Angeles', addr: '1333 E Washington Blvd, Los Angeles, CA 90021', phone: '+1 747-441-6336', email: 'm22k.cars@gmail.com', hours: 'Mon–Sat · 09:00 – 18:00', img: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200&q=80&auto=format&fit=crop' }].
             map((s) =>
-            <div key={s.city} className="card" style={hStyles.showroom}>
+            <div key={s.city} className="card animate-on-scroll animate-slide-left" style={hStyles.showroom}>
                 <div style={hStyles.showroomImgWrap}>
                   <CarImage src={s.img} alt={s.city + ' showroom'} label={s.city + ' showroom'} style={hStyles.showroomImg} />
                   <div style={hStyles.showroomOverlay} />
@@ -1158,7 +1158,7 @@ const HomePage = ({ onNav }) => {
                 </div>
               </div>
             )}
-            <div className="card" style={hStyles.mapCard}>
+            <div className="card animate-on-scroll animate-slide-right" style={hStyles.mapCard}>
               <iframe
                 title="MK Cars Los Angeles location"
                 src="https://www.google.com/maps?q=1333+E+Washington+Blvd,+Los+Angeles,+CA+90021&output=embed"
