@@ -1043,61 +1043,104 @@ const HomePage = ({ onNav }) => {
       <section style={{ padding: '32px 0 0' }}>
         <div className="container">
           <div style={hStyles.hero}>
-            <div className="car-photo-frame" style={hStyles.heroImgWrap}>
-              <CarImage src={car.img} alt={car.model} label={car.brand + ' ' + car.model} style={{...hStyles.heroImg, objectPosition: car.imgPosition || '50% 50%'}} key={car.id} />
-              <div style={hStyles.heroOverlay} />
-              <div style={hStyles.heroEyebrow}>
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)' }} />
-                  In stock · {car.year}
-                </span>
-              </div>
-              <div style={hStyles.heroCaption}>
-                <div style={hStyles.heroTitle}>{car.brand} {car.model}</div>
-                <div style={hStyles.heroSub}>{car.tags.join(' · ')}</div>
-              </div>
-            </div>
-
-            {/* Thumbnails */}
-            <div className="no-scrollbar" style={hStyles.thumbs}>
-              {featured.map((c, i) =>
-              <button key={c.id} onClick={() => { setActiveIdx(i); setPaused(true); setTimeout(() => setPaused(false), 8000); }}
-              className="car-photo-frame"
-              style={{ ...hStyles.thumb, ...(i === activeIdx ? hStyles.thumbActive : {}) }}>
-                  <CarImage src={c.img} alt={c.model} label={c.brand} style={hStyles.thumbImg} />
-                </button>
-              )}
-            </div>
-
-            {/* Hero info bar */}
-            <div style={hStyles.heroBar}>
-              <div>
-                <div style={hStyles.heroBarTitle}>{car.brand} {car.model} {car.year}</div>
-                <div style={{ color: 'var(--text-muted)', fontSize: 14, marginTop: 6, display: 'flex', alignItems: 'center', gap: 12 }}>
-                  <span style={{ display: 'inline-flex', marginRight: 4 }}>
-                    {[0, 1, 2].map((i) =>
-                    <span key={i} style={{
-                      width: 28, height: 28, borderRadius: '50%',
-                      background: ['#a87b4a', '#7a8b6f', '#6f7a8b'][i],
-                      marginLeft: i === 0 ? 0 : -10,
-                      border: '2px solid var(--bg-card)'
-                    }} />
-                    )}
-                  </span>
-                  <span style={{ color: 'var(--text-muted)', fontSize: 13 }}>finance from</span>
-                  <span style={{ fontWeight: 700, color: 'var(--accent)', fontSize: 15 }}>{fmtMoney(Math.round(car.price * 0.012))}/mo</span>
+            {isMobile ? (
+              /* === MOBILE HERO === */
+              <div style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', border: '1px solid var(--border)' }}>
+                {/* Photo */}
+                <div className="car-photo-frame" style={{ position: 'relative', aspectRatio: '4/3', background: '#000' }}>
+                  <CarImage src={car.img} alt={car.model} label={car.brand + ' ' + car.model}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: car.imgPosition || '50% 30%', display: 'block' }} key={car.id} />
+                  <div style={hStyles.heroEyebrow}>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+                      <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)' }} />
+                      In stock · {car.year}
+                    </span>
+                  </div>
+                </div>
+                {/* Text block on dark background */}
+                <div style={{ background: '#0a0a0a', padding: '20px 20px 16px' }}>
+                  <div style={{ fontSize: 22, fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.1, color: '#fff' }}>{car.brand} {car.model}</div>
+                  <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: 13, marginTop: 6, letterSpacing: '0.03em' }}>{car.tags.join(' · ')}</div>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 16, gap: 12 }}>
+                    <div>
+                      <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: 11, fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Price</div>
+                      <div style={{ fontSize: 22, fontWeight: 700, color: '#fff' }}>{fmtMoney(car.price)}</div>
+                    </div>
+                    <button className="btn btn-primary" style={{ padding: '10px 18px', fontSize: 14 }} onClick={() => onNav(`/car/${car.id}`)}>
+                      View Details <Icon name="arrow" size={14} />
+                    </button>
+                  </div>
+                </div>
+                {/* Dot indicators */}
+                <div style={{ background: '#0a0a0a', display: 'flex', justifyContent: 'center', gap: 6, paddingBottom: 14 }}>
+                  {featured.map((_, i) =>
+                    <button key={i} onClick={() => { setActiveIdx(i); setPaused(true); setTimeout(() => setPaused(false), 8000); }}
+                      style={{ width: i === activeIdx ? 20 : 6, height: 6, borderRadius: 999, border: 'none', cursor: 'pointer', padding: 0,
+                        background: i === activeIdx ? 'var(--accent)' : 'rgba(255,255,255,0.2)',
+                        transition: 'all .3s' }} />
+                  )}
                 </div>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
-                <div style={{ textAlign: 'right' }}>
-                  <div style={{ color: 'var(--text-faint)', fontSize: 12, fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Price</div>
-                  <div style={{ fontSize: 28, fontWeight: 700 }}>{fmtMoney(car.price)}</div>
+            ) : (
+              /* === DESKTOP HERO === */
+              <>
+                <div className="car-photo-frame" style={hStyles.heroImgWrap}>
+                  <CarImage src={car.img} alt={car.model} label={car.brand + ' ' + car.model} style={{...hStyles.heroImg, objectPosition: car.imgPosition || '50% 50%'}} key={car.id} />
+                  <div style={hStyles.heroOverlay} />
+                  <div style={hStyles.heroEyebrow}>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+                      <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)' }} />
+                      In stock · {car.year}
+                    </span>
+                  </div>
+                  <div style={hStyles.heroCaption}>
+                    <div style={hStyles.heroTitle}>{car.brand} {car.model}</div>
+                    <div style={hStyles.heroSub}>{car.tags.join(' · ')}</div>
+                  </div>
                 </div>
-                <button className="btn btn-primary" onClick={() => onNav(`/car/${car.id}`)}>
-                  View Details <Icon name="arrow" size={16} />
-                </button>
-              </div>
-            </div>
+
+                {/* Thumbnails */}
+                <div className="no-scrollbar" style={hStyles.thumbs}>
+                  {featured.map((c, i) =>
+                  <button key={c.id} onClick={() => { setActiveIdx(i); setPaused(true); setTimeout(() => setPaused(false), 8000); }}
+                  className="car-photo-frame"
+                  style={{ ...hStyles.thumb, ...(i === activeIdx ? hStyles.thumbActive : {}) }}>
+                      <CarImage src={c.img} alt={c.model} label={c.brand} style={hStyles.thumbImg} />
+                    </button>
+                  )}
+                </div>
+
+                {/* Hero info bar */}
+                <div style={hStyles.heroBar}>
+                  <div>
+                    <div style={hStyles.heroBarTitle}>{car.brand} {car.model} {car.year}</div>
+                    <div style={{ color: 'var(--text-muted)', fontSize: 14, marginTop: 6, display: 'flex', alignItems: 'center', gap: 12 }}>
+                      <span style={{ display: 'inline-flex', marginRight: 4 }}>
+                        {[0, 1, 2].map((i) =>
+                        <span key={i} style={{
+                          width: 28, height: 28, borderRadius: '50%',
+                          background: ['#a87b4a', '#7a8b6f', '#6f7a8b'][i],
+                          marginLeft: i === 0 ? 0 : -10,
+                          border: '2px solid var(--bg-card)'
+                        }} />
+                        )}
+                      </span>
+                      <span style={{ color: 'var(--text-muted)', fontSize: 13 }}>finance from</span>
+                      <span style={{ fontWeight: 700, color: 'var(--accent)', fontSize: 15 }}>{fmtMoney(Math.round(car.price * 0.012))}/mo</span>
+                    </div>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
+                    <div style={{ textAlign: 'right' }}>
+                      <div style={{ color: 'var(--text-faint)', fontSize: 12, fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Price</div>
+                      <div style={{ fontSize: 28, fontWeight: 700 }}>{fmtMoney(car.price)}</div>
+                    </div>
+                    <button className="btn btn-primary" onClick={() => onNav(`/car/${car.id}`)}>
+                      View Details <Icon name="arrow" size={16} />
+                    </button>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </section>
