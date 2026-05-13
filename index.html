@@ -665,8 +665,8 @@ const Header = ({ route, onNav, theme, setTheme }) => {
     e.preventDefault();
     setMenuOpen(false);
     if (path === 'apply-online') {
-      if (route !== '/') { onNav('/'); setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }), 150); }
-      else document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+      window.location.href = 'apply-online.html';
+      return;
     } else if (path === '/' || path === '/inventory') {
       onNav(path);
     } else {
@@ -1105,7 +1105,7 @@ const HomePage = ({ onNav }) => {
               </p>
               <div style={{ display: 'flex', gap: 12 }}>
                 <a href="https://wa.me/17474416336" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Book a viewing <Icon name="arrow" size={16} /></a>
-                <button className="btn btn-ghost" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Our story</button>
+                <button className="btn btn-ghost" onClick={() => window.location.href = 'our-story.html'}>Our story</button>
               </div>
             </div>
             <div style={isMobile ? {display:'grid',gridTemplateColumns:'1fr',gap:12} : hStyles.statsGrid}>
